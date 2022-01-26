@@ -37,7 +37,7 @@ struct treap{
   }
   int merge(int x,int y){
     if(min(x,y) == - 1) return max(x,y);
-    if(rand()&1){
+    if(tre[x].p >= tre[y].p){
       tre[x].r = merge(tre[x].r,y);
       return x;
     }
@@ -48,7 +48,7 @@ struct treap{
   }
   int brutemerge(int l,int r){
     if(min(l,r) == -1) return max(l,r);
-    if(rand()&1) swap(l,r);
+    if(tre[l].p < tre[r].p) swap(l,r);
     auto tmp = split(r,tre[l].val);
     tre[l].l = brutemerge(tre[l].l,tmp.first);
     tre[l].r = brutemerge(tre[l].r,tmp.second);
