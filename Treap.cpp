@@ -7,10 +7,12 @@ struct node{
     int l,r,val,p;
     node(){
       l = r = -1,val = 0;
+      p = rand() % 685421647;
     }
     node(int x){
       l = r = -1;
       val = x;
+      p = rand() % 685421647;
     }
 };
 vector<node> tre;
